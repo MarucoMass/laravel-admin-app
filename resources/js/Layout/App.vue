@@ -7,6 +7,13 @@ import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Bell, CircleUser, Home, LineChart, Menu, Package, Package2, Search, ShoppingCart, Users } from 'lucide-vue-next'
 import { Link } from '@inertiajs/vue3'
+import { useForm } from '@inertiajs/vue3'
+
+const form = useForm({});
+
+const logout = () => {
+    form.post('/logout');
+}
 </script>
 
 <template>
@@ -160,7 +167,7 @@ import { Link } from '@inertiajs/vue3'
                         <DropdownMenuItem>Settings</DropdownMenuItem>
                         <DropdownMenuItem>Support</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Logout</DropdownMenuItem>
+                        <DropdownMenuItem @click="logout">Logout</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </header>
